@@ -15,5 +15,9 @@ public class Main {
 
         greeting2.sayHello();
 
+
+        Greeting greeting3 = () -> System.out.println("Hello World 3");
+        greeting3.sayHello();
+
         }
     }
