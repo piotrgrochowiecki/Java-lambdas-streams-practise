@@ -3,6 +3,7 @@ package com.piotrgrochowiecki;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsMain {
@@ -21,12 +22,13 @@ public class StreamsMain {
         shoppingList.add("milk");
         shoppingList.add("pasta");
 
-        Stream<String> shoppingListStream = shoppingList.stream();
-
-        shoppingListStream
+        List<String> sortedShoppingList = shoppingList.stream()
                 .sorted()
                 .map(item -> item.toUpperCase())
                 .filter(item -> item.startsWith("P"))
-                .forEach(item -> System.out.println(item));
+                .collect(Collectors.toList());
+
+        System.out.println(shoppingList);
+        System.out.println(sortedShoppingList);
     }
 }
