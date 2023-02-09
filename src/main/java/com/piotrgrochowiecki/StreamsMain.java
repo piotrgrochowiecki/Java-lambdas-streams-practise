@@ -23,7 +23,10 @@ public class StreamsMain {
 
         Stream<String> shoppingListStream = shoppingList.stream();
 
-        shoppingListStream.sorted()
+        shoppingListStream
+                .sorted()
+                .map(item -> item.toUpperCase())
+                .filter(item -> item.startsWith("P"))
                 .forEach(item -> System.out.println(item));
     }
 }
